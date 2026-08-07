@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">MissMoodyTiger storefront architecture</title>
+  <desc id="desc">A redacted storefront architecture diagram using blurred artwork placeholders.</desc>
+  <defs>
+    <filter id="blur"><feGaussianBlur stdDeviation="16"/></filter>
+    <style>text{font-family:monospace;fill:#37243a}.label{font-size:22px}.small{font-size:16px}.box{fill:#fff8ee;stroke:#37243a;stroke-width:3}.line{stroke:#37243a;stroke-width:3;fill:none;marker-end:url(#arrow)}</style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#37243a"/></marker>
+  </defs>
+  <rect width="1200" height="680" fill="#fff8ee"/>
+  <text x="60" y="60" class="label">MissMoodyTiger · storefront architecture</text>
+  <rect x="60" y="110" width="265" height="360" rx="8" class="box"/>
+  <text x="85" y="145" class="label">Visitor browser</text>
+  <rect x="85" y="175" width="215" height="100" fill="#8bbccc" filter="url(#blur)"/>
+  <rect x="85" y="300" width="215" height="100" fill="#df684f" filter="url(#blur)"/>
+  <text x="85" y="440" class="small">Redacted product previews</text>
+  <rect x="465" y="110" width="280" height="360" rx="8" class="box"/>
+  <text x="492" y="145" class="label">Static storefront</text>
+  <text x="492" y="195" class="small">HTML pages</text><text x="492" y="230" class="small">styles.css</text><text x="492" y="265" class="small">navigation.js</text><text x="492" y="300" class="small">script.js / cart.js</text><text x="492" y="335" class="small">art-print.js</text><text x="492" y="400" class="small">low-resolution assets</text>
+  <rect x="870" y="110" width="270" height="360" rx="8" class="box"/>
+  <text x="897" y="145" class="label">Browser storage</text>
+  <text x="897" y="205" class="small">cart</text><text x="897" y="245" class="small">currency preference</text><text x="897" y="285" class="small">unit preference</text><text x="897" y="325" class="small">prototype wishlist</text><text x="897" y="385" class="small">no customer PII</text>
+  <path d="M325 290H455" class="line"/><path d="M745 290H860" class="line"/>
+  <rect x="220" y="535" width="760" height="80" rx="8" fill="#efdbcf" stroke="#37243a" stroke-width="3"/>
+  <text x="250" y="570" class="label">Production: self-hosted API + PostgreSQL + secure identity + payment / messaging providers</text>
+  <path d="M600 470V525" class="line"/>
+</svg>

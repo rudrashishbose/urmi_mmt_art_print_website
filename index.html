@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="MissMoodyTiger — small editions, strange little stories, and art for tender wild hearts." />
+    <title>MissMoodyTiger — art for tender wild hearts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="announcement">a tiny note from the den — free shipping on original orders over $85 <a href="#shop">peek at the shop ↗</a></div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="MissMoodyTiger home">Miss<br /><i>Moody</i>Tiger<span>™</span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">menu <b>+</b></button>
+      <nav id="site-nav" aria-label="Main navigation">
+        <a href="#work">work</a><a href="#shop">shop</a><a href="products.html">art prints</a><a href="#original-art">original art</a><a href="#about">about me</a>
+      </nav>
+      <div class="locale-wrap"><button class="locale-button" id="localeButton" aria-expanded="false" aria-label="Choose country and currency">🇮🇳 <span>INR</span>⌄</button><div class="locale-menu" id="localeMenu"><p>Prices in</p><button data-country="IN">🇮🇳 India · INR</button><button data-country="US">🇺🇸 United States · USD</button><button data-country="GB">🇬🇧 United Kingdom · GBP</button><button data-country="EU">🇪🇺 Europe · EUR</button><button class="locate-button" id="locateButton">⌖ use my location</button><small id="locationStatus"></small></div></div><div class="bag-wrap"><a class="bag" id="bagButton" href="cart.html" aria-label="Open shopping bag">cart <span id="bagCount">0</span></a><div class="cart-preview" id="cartPreview"><p class="eyebrow">your little hoard</p><div id="cartPreviewItems">Your cart is empty.</div><a href="cart.html">view full cart →</a></div></div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">independent art studio · made slowly in small batches</p>
+          <h1 id="hero-title">For the soft-<br /><em>hearted</em> &amp; <br />a little feral.</h1>
+          <p class="intro">Drawings, paper things, and curious objects for people who notice the moon in puddles.</p>
+          <a class="scribble-link" href="#shop">enter the little shop <span>→</span></a>
+        </div>
+        <div class="hero-art" role="img" aria-label="A hand-drawn tiger asleep beneath stars">
+          <div class="moon"></div><div class="spark s1">✦</div><div class="spark s2">✦</div><div class="spark s3">✷</div>
+          <svg viewBox="0 0 650 650" aria-hidden="true"><path class="tiger-body" d="M128 428c7-121 109-221 235-220 91 0 159 43 185 117 21 60 5 132-53 167-45 27-131 41-211 24-83-18-161-16-156-88Z"/><path class="tiger-face" d="M237 214c-17-45-2-97 43-123l26 39c26-12 65-14 92-4l29-37c39 29 53 78 34 125 20 24 29 55 21 89-13 54-63 90-126 86-66-4-112-45-116-105-2-28 6-51 17-70Z"/><path class="stripe" d="M271 113c4 27 7 40 18 58M315 102c0 31 5 49 14 71M358 103c-4 28-3 50 2 71M406 115c-10 27-15 46-16 65M189 280c24 4 44 14 58 31M453 269c-24 7-41 18-53 34M148 365c45-2 80 10 103 34M457 380c33-4 60 1 85 16M225 465c17 18 25 38 29 63M347 455c-4 28 1 52 17 77"/><path class="tiger-line" d="M286 246c10-10 23-11 32-2M370 243c10-9 23-7 31 3M332 281c12 7 25 7 37 0M329 315c12 13 28 14 42 0M166 436c46 7 84 26 111 58M399 477c38-19 72-44 102-75"/></svg>
+          <div class="tape tape-one"></div><div class="tape tape-two"></div>
+          <p class="art-caption">sleeping tiger, 2026<br />ink + midnight tea</p>
+        </div>
+      </section>
+
+      <section class="ticker"><div>★ new moon paper club &nbsp; ★ &nbsp; strange &amp; tender objects &nbsp; ★ &nbsp; new moon paper club &nbsp; ★ &nbsp; strange &amp; tender objects &nbsp; ★</div></section>
+
+      <section class="shop-section" id="shop" aria-labelledby="shop-title">
+        <div class="section-heading"><p class="eyebrow">a cabinet of things</p><h2 id="shop-title">Bring a little wild<br />home with you.</h2><a href="products.html" target="_blank" rel="noopener" class="text-link">all small editions →</a></div>
+        <div class="product-grid">
+          <article class="product card-red product-clickable" data-product-url="art-print.html?art=river" data-id="river" data-price="18.04" tabindex="0" role="link" aria-label="View River Visitor art print"><a class="product-image-link" href="art-print.html?art=river" target="_blank" rel="noopener" aria-label="Open River Visitor artwork gallery in a new tab"><div class="product-art photo-art river"><img src="assets/river-visitor-cropped.jpeg" alt="A bear watching a salmon leap in a forest river art print" /></div></a><p class="product-type">art print</p><h3>River Visitor</h3><p class="product-sizes">A4</p><p class="price" data-usd="18.04">₹1,499</p><button class="add" data-item="River Visitor">add to bag</button></article>
+          <article class="product offset" data-id="iris" data-price="3"><a class="product-image-link" href="art-print.html?art=iris" target="_blank" rel="noopener" aria-label="Open Iris Vase artwork gallery in a new tab"><div class="product-art photo-art iris"><img src="assets/iris-vase.jpeg" alt="Ink illustration of irises in an ornamental vase" /></div></a><p class="product-type">art print</p><h3>Iris Vase</h3><p class="product-sizes">A6</p><p class="price" data-usd="3">₹249</p><button class="add" data-item="Iris Vase">add to bag</button></article>
+          <article class="product" data-id="pansy" data-price="3"><a class="product-image-link" href="art-print.html?art=pansy" target="_blank" rel="noopener" aria-label="Open Pansy Moths artwork gallery in a new tab"><div class="product-art photo-art pansy"><img src="assets/pansy-moths-clean.png" alt="Straightened Pansy Moths art print with no desk background" /></div></a><p class="product-type">art print</p><h3>Pansy Moths</h3><p class="product-sizes">A6 · A5</p><p class="price">₹249 – ₹749</p><button class="add" data-item="Pansy Moths">add to bag</button></article>
+        </div>
+      </section>
+
+      <section class="split-feature" id="work">
+        <div class="feature-art"><div class="frame"><svg viewBox="0 0 400 500" aria-hidden="true"><path d="M174 360c-68-33-95-97-61-153 20-34 48-55 75-72 17-10 17-31 13-52 31 16 44 34 43 55 36-20 66-23 91-15-16 15-25 32-24 51 45 28 67 65 50 111-25 68-119 105-187 76Z" fill="#ee6f56"/><path d="M155 228c20-6 41-3 56 8M247 233c19-8 37-7 51 4M193 281c20 8 35 7 53-2M189 330c11 25 16 50 12 76M238 326c-3 24-2 48 6 70" fill="none" stroke="#44283b" stroke-width="9" stroke-linecap="round"/></svg></div><p>portrait for Little Soft Things, 2026</p></div>
+        <div class="feature-copy"><p class="eyebrow">illustration &amp; commissions</p><h2>Making room for the odd, the ordinary, and the overfeeling.</h2><p>MissMoodyTiger makes character-led art for books, kind brands, meaningful rooms, and anyone who prefers their treasures a little offbeat.</p><a href="mailto:hello@missmoodytiger.studio" class="button-light">let's make something ↗</a></div>
+      </section>
+
+      <section class="journal" id="journal"><div><p class="eyebrow">from the sketchbook</p><h2>Field notes<br />from the den.</h2><a class="scribble-link" href="#journal">read all the little notes <span>→</span></a></div><div class="note-stack"><article class="note note-yellow"><small>02.07.26</small><h3>On drawing when the brain feels like a drawer of tangled thread.</h3><a href="#journal">read note →</a></article><article class="note note-blue"><small>19.06.26</small><h3>The five objects currently living on my desk.</h3><a href="#journal">open drawer →</a></article></div></section>
+
+      <section class="about" id="about"><div class="about-stamp">made with<br /><b>ink</b>, tea<br />&amp; too many<br />feelings</div><div><p class="eyebrow">hello, tender creature</p><h2>I’m the hands, pencils, and questionable playlist behind MissMoodyTiger.</h2><p>This is a home for tender-but-not-too-precious art. Everything begins with a wonky sketch, then slowly becomes a print, a paper thing, or an invitation to look more closely.</p><a href="mailto:hello@missmoodytiger.studio" class="text-link">say hello →</a></div></section>
+
+      <section class="newsletter"><div><p class="eyebrow">the new moon letter</p><h2>Small dispatches for your tender wild heart.</h2><p>Studio secrets, tiny releases and things worth noticing — once or twice a moon, never noise.</p></div><form id="newsletterForm"><label for="email">your email</label><div><input id="email" type="email" placeholder="you@somewhere.lovely" required /><button type="submit">join the den →</button></div><p class="form-message" aria-live="polite"></p></form></section>
+    </main>
+
+    <footer><a class="wordmark" href="#top">Miss<br /><i>Moody</i>Tiger<span>™</span></a><div><a href="#work">work</a><a href="#shop">shop</a><a href="#journal">field notes</a><a href="mailto:hello@missmoodytiger.studio">contact</a></div><p>© 2026 MissMoodyTiger<br />all things drawn with care</p></footer>
+
+    <aside class="tech-note" id="techNote"><button id="techToggle" aria-expanded="false">open-source studio note <span>+</span></button><div class="tech-content"><p class="eyebrow">visual build notes</p><h3>Open-source swaps used here</h3><ul><li><b>Wix shop → Medusa</b><span>Open-source commerce engine; bag UI is demo-ready.</span></li><li><b>Wix CMS → Decap CMS</b><span>Git-backed editing for art, notes &amp; products.</span></li><li><b>Wix email → Listmonk</b><span>Self-hostable newsletter flows.</span></li></ul><p class="note-foot">These peach labels are intentionally visible so you can track the platform changes.</p></div></aside>
+    <div class="cart" id="cart" aria-hidden="true"><div><button id="closeCart" aria-label="Close shopping bag">×</button><p class="eyebrow">your small hoard</p><h2>Bag</h2><div id="cartItems"><p class="empty">Nothing in here yet — go find a treasure.</p></div><button class="checkout" id="checkout">demo checkout →</button><p class="cart-note">Open-source swap: Medusa storefront + payment provider of your choice.</p></div></div>
+    <script src="script.js?v=4"></script>
+  </body>
+</html>
