@@ -18,6 +18,11 @@
   const country = localStorage.getItem('mmt-country') || 'IN';
   const flags = { IN: '🇮🇳', US: '🇺🇸', GB: '🇬🇧', EU: '🇪🇺' };
   const label = { IN: 'INR', US: 'USD', GB: 'GBP', EU: 'EUR' };
+  const inrRate = { IN: 1, US: 1 / 83.1, GB: 0.79 / 83.1, EU: 0.92 / 83.1 };
+  const money = amount => new Intl.NumberFormat(
+    country === 'IN' ? 'en-IN' : country === 'US' ? 'en-US' : country === 'GB' ? 'en-GB' : 'de-DE',
+    { style: 'currency', currency: label[country], maximumFractionDigits: 0 }
+  ).format(amount * inrRate[country]);
   const user = JSON.parse(localStorage.getItem('mmt-user') || 'null');
   const item = (id, href, text) => `<a ${active === id ? 'class="active" aria-current="page"' : ''} href="${href}">${text}</a>`;
 
@@ -35,6 +40,11 @@
     localStorage.setItem('mmt-country', option.dataset.country);
     location.reload();
   }));
+  const announcement = document.querySelector('.announcement');
+  if (announcement && page === 'index.html') {
+    const shopLink = announcement.querySelector('a')?.outerHTML || '<a href="#shop">peek at the shop ↗</a>';
+    announcement.innerHTML = `free shipping above ${money(650)} · otherwise ${money(80)} ${shopLink}`;
+  }
   if (page === 'products.html') {
     const catalogue = document.querySelector('.catalog');
     const heading = document.querySelector('.catalog-heading');

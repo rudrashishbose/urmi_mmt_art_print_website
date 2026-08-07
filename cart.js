@@ -18,6 +18,8 @@ const previews = {
 
 const country = localStorage.getItem('mmt-country') || 'IN';
 let cart = JSON.parse(localStorage.getItem('mmt-cart') || '{}');
+const shippingThresholdUsd = 650 / 83.1;
+const shippingChargeUsd = 80 / 83.1;
 const money = usd => new Intl.NumberFormat(currencyOptions[country].locale, {
   style: 'currency', currency: currencyOptions[country].code, maximumFractionDigits: 0
 }).format(usd * currencyOptions[country].rate);
@@ -26,6 +28,11 @@ function render() {
   const list = document.getElementById('cartList');
   const summary = document.getElementById('cartSummary');
   const items = Object.entries(cart);
+  if (!document.querySelector('.cart-navigation')) {
+    list.insertAdjacentHTML('beforebegin', '<nav class="cart-navigation" aria-label="Cart navigation"><button type="button" id="historyBack">← back</button><button type="button" id="historyForward">forward →</button><a href="products.html">continue shopping</a></nav>');
+    document.getElementById('historyBack').onclick = () => history.length > 1 ? history.back() : location.assign('products.html');
+    document.getElementById('historyForward').onclick = () => history.forward();
+  }
   if (!items.length) {
     list.innerHTML = '<p class="empty-cart">Your cart is empty — <a href="index.html#shop">find a treasure</a>.</p>';
     summary.innerHTML = '';
@@ -52,8 +59,10 @@ function render() {
       <p class="cart-item-total">${money(item.price * item.qty)}</p>
     </article>`).join('');
 
-  const total = items.reduce((sum, [, item]) => sum + item.price * item.qty, 0);
-  summary.innerHTML = `<div><span>Total</span><b>${money(total)}</b></div><button class="checkout-button">checkout securely →</button>`;
+  const subtotal = items.reduce((sum, [, item]) => sum + item.price * item.qty, 0);
+  const shipping = subtotal >= shippingThresholdUsd ? 0 : shippingChargeUsd;
+  const total = subtotal + shipping;
+  summary.innerHTML = `<div><span>Subtotal</span><b>${money(subtotal)}</b></div><div><span>Shipping</span><b>${shipping ? money(shipping) : 'Free'}</b></div><p class="shipping-note">Free shipping above ${money(shippingThresholdUsd)}; otherwise ${money(shippingChargeUsd)}.</p><div><span>Total</span><b>${money(total)}</b></div><button class="checkout-button">checkout securely →</button>`;
   document.querySelectorAll('[data-step]').forEach(button => button.onclick = () => change(button.dataset.id, (cart[button.dataset.id]?.qty || 0) + Number(button.dataset.step)));
   document.querySelectorAll('[data-remove]').forEach(button => button.onclick = () => change(button.dataset.remove, 0));
   document.querySelectorAll('.quantity-control input').forEach(input => input.onchange = () => change(input.dataset.id, Math.max(0, parseInt(input.value) || 0)));
