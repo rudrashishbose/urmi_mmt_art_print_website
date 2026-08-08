@@ -43,7 +43,7 @@
   const announcement = document.querySelector('.announcement');
   if (announcement && page === 'index.html') {
     const shopLink = announcement.querySelector('a')?.outerHTML || '<a href="#shop">peek at the shop ↗</a>';
-    announcement.innerHTML = `free shipping above ${money(650)} · otherwise ${money(80)} ${shopLink}`;
+    announcement.innerHTML = `Free standard shipping on orders above ${money(650)} · flat-rate standard shipping ${money(80)} ${shopLink}`;
   }
   if (page === 'products.html') {
     const catalogue = document.querySelector('.catalog');
@@ -77,5 +77,7 @@
     }
   }
   const footer = document.querySelector('footer');
-  if (footer && !footer.querySelector('.social-links')) footer.insertAdjacentHTML('beforeend', '<div class="social-links" aria-label="Social channels"><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎ Instagram</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶ YouTube</a></div>');
+  const footerLinks = footer?.querySelector('div');
+  if (footerLinks && page === 'index.html') footerLinks.innerHTML = '<a href="#work">work</a><a href="#shop">shop</a><a href="blog.html">blog</a><a href="terms.html">terms &amp; conditions</a><a href="contact.html">contact</a><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎ instagram</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶ youtube</a>';
+  if (footer && !footer.querySelector('[aria-label="Instagram"]')) footer.insertAdjacentHTML('beforeend', '<div class="social-links" aria-label="Social channels"><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎ Instagram</a><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">▶ YouTube</a></div>');
 })();

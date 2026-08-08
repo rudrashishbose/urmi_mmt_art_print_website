@@ -33,7 +33,8 @@
           <div class="moon"></div><div class="spark s1">✦</div><div class="spark s2">✦</div><div class="spark s3">✷</div>
           <svg viewBox="0 0 650 650" aria-hidden="true"><path class="tiger-body" d="M128 428c7-121 109-221 235-220 91 0 159 43 185 117 21 60 5 132-53 167-45 27-131 41-211 24-83-18-161-16-156-88Z"/><path class="tiger-face" d="M237 214c-17-45-2-97 43-123l26 39c26-12 65-14 92-4l29-37c39 29 53 78 34 125 20 24 29 55 21 89-13 54-63 90-126 86-66-4-112-45-116-105-2-28 6-51 17-70Z"/><path class="stripe" d="M271 113c4 27 7 40 18 58M315 102c0 31 5 49 14 71M358 103c-4 28-3 50 2 71M406 115c-10 27-15 46-16 65M189 280c24 4 44 14 58 31M453 269c-24 7-41 18-53 34M148 365c45-2 80 10 103 34M457 380c33-4 60 1 85 16M225 465c17 18 25 38 29 63M347 455c-4 28 1 52 17 77"/><path class="tiger-line" d="M286 246c10-10 23-11 32-2M370 243c10-9 23-7 31 3M332 281c12 7 25 7 37 0M329 315c12 13 28 14 42 0M166 436c46 7 84 26 111 58M399 477c38-19 72-44 102-75"/></svg>
           <div class="tape tape-one"></div><div class="tape tape-two"></div>
-          <p class="art-caption">sleeping tiger, 2026<br />ink + midnight tea</p>
+          <button class="tiger-toggle" id="tigerToggle" type="button" aria-pressed="false">wake the tiger ✦</button>
+          <p class="art-caption" id="tigerCaption">sleeping tiger, 2026<br />ink + midnight tea</p>
         </div>
       </section>
 
@@ -53,17 +54,17 @@
         <div class="feature-copy"><p class="eyebrow">illustration &amp; commissions</p><h2>Making room for the odd, the ordinary, and the overfeeling.</h2><p>MissMoodyTiger makes character-led art for books, kind brands, meaningful rooms, and anyone who prefers their treasures a little offbeat.</p><a href="mailto:hello@missmoodytiger.studio" class="button-light">let's make something ↗</a></div>
       </section>
 
-      <section class="journal" id="journal"><div><p class="eyebrow">from the sketchbook</p><h2>Field notes<br />from the den.</h2><a class="scribble-link" href="#journal">read all the little notes <span>→</span></a></div><div class="note-stack"><article class="note note-yellow"><small>02.07.26</small><h3>On drawing when the brain feels like a drawer of tangled thread.</h3><a href="#journal">read note →</a></article><article class="note note-blue"><small>19.06.26</small><h3>The five objects currently living on my desk.</h3><a href="#journal">open drawer →</a></article></div></section>
+      <section class="journal" id="blog-preview"><div><p class="eyebrow">from the sketchbook</p><h2>Blog<br />from the den.</h2><a class="scribble-link" href="blog.html">visit the blog <span>→</span></a></div><div class="note-stack"><article class="note note-yellow"><small>02.07.26</small><h3>On drawing when the brain feels like a drawer of tangled thread.</h3><a href="blog.html">read note →</a></article><article class="note note-blue"><small>19.06.26</small><h3>The five objects currently living on my desk.</h3><a href="blog.html">open drawer →</a></article></div></section>
 
       <section class="about" id="about"><div class="about-stamp">made with<br /><b>ink</b>, tea<br />&amp; too many<br />feelings</div><div><p class="eyebrow">hello, tender creature</p><h2>I’m the hands, pencils, and questionable playlist behind MissMoodyTiger.</h2><p>This is a home for tender-but-not-too-precious art. Everything begins with a wonky sketch, then slowly becomes a print, a paper thing, or an invitation to look more closely.</p><a href="mailto:hello@missmoodytiger.studio" class="text-link">say hello →</a></div></section>
 
       <section class="newsletter"><div><p class="eyebrow">the new moon letter</p><h2>Small dispatches for your tender wild heart.</h2><p>Studio secrets, tiny releases and things worth noticing — once or twice a moon, never noise.</p></div><form id="newsletterForm"><label for="email">your email</label><div><input id="email" type="email" placeholder="you@somewhere.lovely" required /><button type="submit">join the den →</button></div><p class="form-message" aria-live="polite"></p></form></section>
     </main>
 
-    <footer><a class="wordmark" href="#top">Miss<br /><i>Moody</i>Tiger<span>™</span></a><div><a href="#work">work</a><a href="#shop">shop</a><a href="#journal">field notes</a><a href="mailto:hello@missmoodytiger.studio">contact</a></div><p>© 2026 MissMoodyTiger<br />all things drawn with care</p></footer>
+    <footer><a class="wordmark" href="#top">Miss<br /><i>Moody</i>Tiger<span>™</span></a><div><a href="#work">work</a><a href="#shop">shop</a><a href="blog.html">blog</a><a href="terms.html">terms &amp; conditions</a><a href="contact.html">contact</a><a href="https://www.instagram.com/" target="_blank" rel="noopener">◎ instagram</a><a href="https://www.youtube.com/" target="_blank" rel="noopener">▶ youtube</a></div><p>© 2026 MissMoodyTiger<br />all things drawn with care</p></footer>
 
     <aside class="tech-note" id="techNote"><button id="techToggle" aria-expanded="false">open-source studio note <span>+</span></button><div class="tech-content"><p class="eyebrow">visual build notes</p><h3>Open-source swaps used here</h3><ul><li><b>Wix shop → Medusa</b><span>Open-source commerce engine; bag UI is demo-ready.</span></li><li><b>Wix CMS → Decap CMS</b><span>Git-backed editing for art, notes &amp; products.</span></li><li><b>Wix email → Listmonk</b><span>Self-hostable newsletter flows.</span></li></ul><p class="note-foot">These peach labels are intentionally visible so you can track the platform changes.</p></div></aside>
     <div class="cart" id="cart" aria-hidden="true"><div><button id="closeCart" aria-label="Close shopping bag">×</button><p class="eyebrow">your small hoard</p><h2>Bag</h2><div id="cartItems"><p class="empty">Nothing in here yet — go find a treasure.</p></div><button class="checkout" id="checkout">demo checkout →</button><p class="cart-note">Open-source swap: Medusa storefront + payment provider of your choice.</p></div></div>
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
   </body>
 </html>

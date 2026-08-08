@@ -4,7 +4,7 @@ const currencyOptions = {
   GB: { code: 'GBP', locale: 'en-GB', rate: 0.79, flag: '🇬🇧' },
   EU: { code: 'EUR', locale: 'de-DE', rate: 0.92, flag: '🇪🇺' }
 };
-const navigationScript = document.createElement('script'); navigationScript.src = 'navigation.js'; document.head.append(navigationScript);
+const navigationScript = document.createElement('script'); navigationScript.src = 'navigation.js?v=3'; document.head.append(navigationScript);
 let country = localStorage.getItem('mmt-country') || 'IN';
 let cart = JSON.parse(localStorage.getItem('mmt-cart') || '{}');
 const money = usd => new Intl.NumberFormat(currencyOptions[country].locale, { style: 'currency', currency: currencyOptions[country].code, maximumFractionDigits: 0 }).format(usd * currencyOptions[country].rate);
@@ -131,3 +131,12 @@ document.querySelectorAll('.product-image-link').forEach(link => {
 });
 updateCurrency(); renderCart();
 document.addEventListener('mmt:catalog-updated', renderCart);
+const tigerToggle = document.getElementById('tigerToggle');
+const heroArt = document.querySelector('.hero-art');
+const tigerCaption = document.getElementById('tigerCaption');
+tigerToggle?.addEventListener('click', () => {
+  const awake = heroArt.classList.toggle('tiger-awake');
+  tigerToggle.setAttribute('aria-pressed', String(awake));
+  tigerToggle.textContent = awake ? 'tiger is awake ✦' : 'wake the tiger ✦';
+  tigerCaption.innerHTML = awake ? 'wild tiger, 2026<br />ink + dawn tea' : 'sleeping tiger, 2026<br />ink + midnight tea';
+});
