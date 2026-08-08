@@ -45,6 +45,120 @@ Before making a non-trivial architectural change, read:
 6. **Mobile behaviour matters.**
    Changes must remain usable at the existing mobile breakpoint and must not break desktop layout.
 
+## Git workflow and branch discipline
+
+All major development changes must be made on a dedicated branch. Do not implement major features, bug fixes, refactors, or architectural changes directly on `dev` or `main`.
+
+### Branch naming convention
+
+Use lowercase kebab-case.
+
+```text
+feature/<module>-<short-description>
+bugfix/<module>-<short-description>
+hotfix/<module>-<short-description>
+refactor/<module>-<short-description>
+docs/<short-description>
+chore/<short-description>
+```
+
+Examples:
+
+```text
+feature/checkout-razorpay
+feature/checkout-paypal
+feature/orders-admin-dashboard
+feature/orders-packing-checklist
+feature/shipping-thermal-label
+feature/inventory-stock-tracking
+
+bugfix/cart-wrong-total
+bugfix/checkout-currency-display
+bugfix/orders-address-mismatch
+bugfix/shipping-label-overflow
+bugfix/mobile-product-layout
+```
+
+### Development branch flow
+
+`dev` is the integration branch.
+
+For every major change requested:
+
+1. Start from the latest `dev`.
+2. Create a dedicated branch using the naming convention above.
+3. Implement only the logical feature, fix, or refactor associated with that branch.
+4. Test and verify the affected functionality.
+5. Commit the completed work to that branch.
+6. Merge the completed branch back into `dev`.
+
+Normal development flow:
+
+```text
+dev
+ │
+ ├── feature/checkout-razorpay
+ ├── feature/orders-packing-checklist
+ ├── feature/shipping-thermal-label
+ ├── bugfix/cart-wrong-total
+ └── refactor/catalog-product-data
+        │
+        └──────────────> dev
+```
+
+When uncertain whether a requested change is substantial enough to require its own branch, prefer creating a branch.
+
+Do not bundle unrelated major changes into the same branch.
+
+### Main branch protection
+
+`main` is the production/release branch.
+
+**Never merge `dev` into `main` automatically.**
+
+Do not:
+
+- commit development work directly to `main`;
+- merge a feature or bug-fix branch directly into `main`;
+- create a `dev` → `main` merge or pull request on your own;
+- approve a `dev` → `main` merge on the user's behalf;
+- enable auto-merge from `dev` to `main`;
+- merge `dev` into `main` merely because development work is complete.
+
+A request to **build, add, implement, modify, refactor, or fix** something authorizes development work and integration into `dev`. It does **not** authorize promotion to `main`.
+
+`dev` may be merged into `main` **only when the user explicitly instructs you to release, deploy, promote, or merge `dev` into `main`.**
+
+The intended repository flow is:
+
+```text
+feature/*  ──┐
+bugfix/*   ──┤
+refactor/* ──┼────> dev ─────X────> main
+docs/*     ──┤                  │
+chore/*    ──┘                  │
+                                │
+                         explicit user
+                         instruction only
+```
+
+### Commit discipline
+
+Each major branch should contain focused commits that describe the actual change.
+
+Prefer concise imperative commit messages such as:
+
+```text
+Add Razorpay checkout integration
+Add order packing checklist
+Generate thermal shipping labels
+Fix cart quantity calculation
+Fix mobile product grid overflow
+Refactor product catalogue data
+```
+
+Do not make unrelated cleanup or broad formatting changes as part of a feature or bug-fix commit unless they are necessary for that change.
+
 ## Ecommerce rules
 
 ### Product data
