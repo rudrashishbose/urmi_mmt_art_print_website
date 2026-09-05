@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio Admin - MissMoodyTiger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="announcement">prototype studio tools - listing data stays in this browser</div>
+    <header class="site-header"></header>
+    <main class="market-shell admin-shell">
+      <section class="market-heading">
+        <p class="eyebrow">studio counter</p>
+        <h1>Add pieces</h1>
+        <p>Create listings with an image, description, price, and dimensions. This preview stores them locally so you can shape the workflow before a backend is connected.</p>
+      </section>
+
+      <section class="market-grid">
+        <form class="market-panel listing-form" id="listingForm">
+          <h2>New listing</h2>
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" placeholder="Moonlit Pansy Study" required />
+
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="5" placeholder="A short customer-facing description..." required></textarea>
+
+          <div class="form-pair">
+            <div>
+              <label for="price">Price in INR</label>
+              <input id="price" name="price" type="number" min="1" step="1" placeholder="1499" required />
+            </div>
+            <div>
+              <label for="dimensions">Dimensions</label>
+              <input id="dimensions" name="dimensions" type="text" placeholder="A4 · 210 x 297 mm" required />
+            </div>
+          </div>
+
+          <label for="image">Image</label>
+          <input id="image" name="image" type="file" accept="image/*" />
+
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="published">Published</option>
+            <option value="draft">Draft</option>
+          </select>
+
+          <button type="submit">Save listing</button>
+          <p class="form-message" id="listingMessage" aria-live="polite"></p>
+        </form>
+
+        <section class="market-panel">
+          <div class="panel-title">
+            <p class="eyebrow">inventory</p>
+            <a class="text-link" href="shop.html">view shop -></a>
+          </div>
+          <div class="tool-list" id="listingList"></div>
+        </section>
+      </section>
+    </main>
+    <script src="navigation.js"></script>
+    <script src="marketplace.js"></script>
+  </body>
+</html>

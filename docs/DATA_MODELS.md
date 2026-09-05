@@ -39,6 +39,11 @@ Stored in `localStorage` as an object keyed by product id.
 | `mmt-wishlist` | Browser-local product-id list for a future signed-in user. |
 | `mmt-user` | Placeholder display identity only; do not treat as authentication. |
 | `mmt-verified-reviews` | Demonstration-only review map; no records are seeded. |
+| `mmt-market-listings` | Prototype admin-created listings with image data, description, price, dimensions, and status. |
+| `mmt-market-otp` | Preview-only OTP value shown on screen; production must email a hashed, expiring token from a server. |
+| `mmt-market-customer` | Preview customer session created after demo OTP verification. |
+| `mmt-market-addresses` | Preview address book. Do not store real customer addresses in browser-only production code. |
+| `mmt-market-orders` | Preview orders created by the customer-facing shop. |
 
 ## Recommended production models
 
@@ -59,6 +64,10 @@ Stored in `localStorage` as an object keyed by product id.
 Order: `id`, `customer_id`, `status`, `currency`, `subtotal`, `shipping`, `tax`, `total`, `terms_accepted_at`, `terms_version`, `shipping_address_snapshot`, `created_at`.
 
 Order line: `id`, `order_id`, `product_id`, `product_code`, `product_name_snapshot`, `selected_size`, `unit_price_snapshot`, `quantity`.
+
+### Address
+
+`id`, `customer_id`, `name`, `line1`, `line2`, `city`, `region`, `postal_code`, `country`, `phone_e164`, `is_default`, `created_at`, `updated_at`. Production address records must be stored server-side and protected by customer authorization.
 
 ### Review
 

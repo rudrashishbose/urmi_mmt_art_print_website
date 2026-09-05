@@ -19,6 +19,6 @@ Open `http://127.0.0.1:4173/`.
 
 ## Important implementation status
 
-This is a storefront prototype. Cart, preferred currency, wishlist, unit preference, and review rendering use browser `localStorage`. No customer account, payment, email verification, OTP, SMS, WhatsApp, order fulfilment, or analytics data is currently sent to a server. Production deployment requires a secure, self-hosted backend and legal/privacy review.
+This is a storefront prototype. Cart, preferred currency, wishlist, unit preference, review rendering, admin listings, demo OTP state, customer session, saved addresses, and email-draft order records use browser `localStorage`. No customer account, email verification, OTP, SMS, WhatsApp, order fulfilment, or analytics data is currently sent to a server. Production deployment requires a secure, self-hosted backend and legal/privacy review.
 
 Preview images are deliberately web-resolution assets. Browser or device screenshots cannot be technically prevented; do not rely on client-side code as copyright protection.

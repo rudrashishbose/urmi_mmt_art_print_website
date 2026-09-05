@@ -13,11 +13,14 @@ flowchart LR
   H --> S[styles.css]
   H --> P[art-print.js]
   H --> C[script.js / cart.js]
+  H --> M[marketplace.js]
   P --> A[Low-resolution preview assets]
   C <--> L[(localStorage)]
+  M <--> L
   L --> CT[Cart]
   L --> PR[Currency & unit preferences]
   L --> WL[Prototype wishlist]
+  L --> AD[Prototype addresses and listings]
   H --> T[Terms acknowledgement before checkout]
 ```
 
@@ -32,9 +35,10 @@ flowchart LR
 | `art-print.js` | Product-detail configuration, size choice, magnifier, specifications, and conditional reviews. |
 | `cart.js` | Cart rows, image thumbnails, quantity controls, totals, and removal. |
 | `checkout-terms.js` | Sends a customer to Terms & Conditions before checkout acknowledgement. |
+| `marketplace.js` | Two-page prototype for admin-created listings, customer shop, demo email OTP login, saved addresses, and email-based order requests. |
 
 ## Production target
 
-The static client should become a browser-only presentation layer. A self-hosted API should own product records, accurate pricing, inventory, checkout, customer identities, order state, review verification, and consent logs. Browser storage should be limited to non-sensitive presentation preferences.
+The static client should become a browser-only presentation layer. A self-hosted API should own product records, image uploads, accurate pricing, inventory, customer identities, email OTP generation/delivery, address storage, order state, review verification, and consent logs. Browser storage should be limited to non-sensitive presentation preferences.
 
 Recommended open-source building blocks: PostgreSQL, an application API, an Argon2id password implementation, and Keycloak or an equivalent self-hosted identity provider. Email/SMS/WhatsApp delivery still require a provider and are not inherently free at scale.

@@ -21,6 +21,6 @@
   <text x="897" y="205" class="small">cart</text><text x="897" y="245" class="small">currency preference</text><text x="897" y="285" class="small">unit preference</text><text x="897" y="325" class="small">prototype wishlist</text><text x="897" y="385" class="small">no customer PII</text>
   <path d="M325 290H455" class="line"/><path d="M745 290H860" class="line"/>
   <rect x="220" y="535" width="760" height="80" rx="8" fill="#efdbcf" stroke="#37243a" stroke-width="3"/>
-  <text x="250" y="570" class="label">Production: self-hosted API + PostgreSQL + secure identity + payment / messaging providers</text>
+  <text x="250" y="570" class="label">Production: self-hosted API + PostgreSQL + secure identity + messaging providers</text>
   <path d="M600 470V525" class="line"/>
 </svg>

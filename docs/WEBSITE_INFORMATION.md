@@ -12,9 +12,11 @@ MissMoodyTiger presents and sells small-run art prints. The experience includes 
 | `products.html` | Art-print catalogue; every artwork card opens its detail page in a new tab. |
 | `art-print.html?art=<id>` | Shared product-detail template, selected by product id. |
 | `cart.html` | Browser-local cart with thumbnails, quantities, remove control, and terms gate. |
+| `studio-admin.html` | Prototype listing manager for uploading an image and entering description, price, dimensions, and publish status. |
+| `shop.html` | Prototype customer shop with demo OTP login, cart, saved addresses, and an email order request. |
 | `terms.html` | Public Terms & Conditions; acknowledgement only appears before checkout. |
 | `login.html` | Non-credential-collecting placeholder until production auth is deployed. |
-| `blog.html` / `portfolio.html` | Studio storytelling and portfolio routes. |
+| `portfolio.html` | Studio portfolio route. |
 
 ## Catalogue and pricing
 
@@ -29,7 +31,10 @@ Product detail pages currently cover River Visitor, Iris Vase, Pansy Moths, Lazy
 - Detail pages support a local magnifier and only render ratings/reviews where a verified review record exists.
 - The cart is shared across current site pages through browser storage.
 - Wishlist actions are reserved for a future logged-in customer identity; this prototype does not save real customer data.
+- The two-page marketplace prototype stores admin listings, demo customer login state, addresses, cart lines, and email-draft order records in `localStorage`.
 
 ## Operational notes
 
 Product codes are maintained in `art-print.js` for future backend reference but are not displayed to customers. Customer data must not be collected or stored using the current static implementation. Before production, add consent records, a privacy policy, secure account handling, and server-side validation.
+
+The marketplace prototype intentionally displays the OTP on screen because no email service is connected. Production OTP login requires server-generated expiring tokens, email delivery, rate limiting, abuse protection, server-side sessions, encrypted transport, and server-side address/order storage.
