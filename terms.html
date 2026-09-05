@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Conditions — MissMoodyTiger</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header"></header>
+    <main class="cart-page">
+      <p class="eyebrow">before you place an order</p>
+      <h1>Terms &<br />Conditions</h1>
+      <div class="art-specs">
+        <div><dt>Unboxing video required</dt><dd>Before opening, record one uninterrupted video that clearly shows the sealed parcel, shipping label, all outer sides, opening, and the print. Keep all packaging. This video is required to assess any damage claim.</dd></div>
+        <div><dt>Final sale</dt><dd>All art prints are non-returnable and non-refundable after delivery. Change of mind, ordering the wrong size, colour preference, screen-to-print variation, framing fit, or a delayed delivery does not qualify for a return or refund.</dd></div>
+        <div><dt>What counts as damage</dt><dd>Eligible damage means clear physical transit damage that materially affects the print: a tear, puncture, water staining, crushing, or a crease running through the artwork; or an incorrect item sent by the studio. Minor packaging marks that do not affect the print, normal print variation, damage after delivery, or a product altered after opening are not eligible.</dd></div>
+        <div><dt>Claim review</dt><dd>Report a claim within 48 hours of delivery with the continuous unboxing video, clear photographs, order number, and all original packaging. Claims without the required evidence cannot be assessed. Where the studio verifies eligible damage or an incorrect item, a fresh copy will be sent.</dd></div>
+        <div><dt>Artist rights</dt><dd>Artwork, photographs, writing, and design remain the artist’s intellectual property. They may not be copied, reproduced, redistributed, or used commercially without written permission.</dd></div>
+      </div>
+      <p class="detail-note">These terms are applied in accordance with rights that cannot lawfully be excluded.</p>
+      <div id="checkoutAcknowledgement"><label style="display:flex;gap:10px;align-items:flex-start;margin:28px 0;max-width:680px"><input id="termsCheck" type="checkbox" style="width:auto;color:var(--ink)" /> <span>I have read and accept the Terms & Conditions.</span></label><button class="detail-add" id="termsContinue" disabled>continue to checkout →</button></div>
+    </main>
+    <script src="navigation.js"></script>
+    <script>const acknowledgement=document.getElementById('checkoutAcknowledgement');if(!new URLSearchParams(location.search).has('next'))acknowledgement.hidden=true;else{const check=document.getElementById('termsCheck'),go=document.getElementById('termsContinue');check.onchange=()=>go.disabled=!check.checked;go.onclick=()=>{localStorage.setItem('mmt-terms-accepted','true');alert('Terms accepted. Payment checkout is connected when the secure order service is activated.');};}</script>
+  </body>
+</html>

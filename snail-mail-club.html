@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snail Mail Club · MissMoodyTiger</title>
+  <style>
+    :root { --cream:#fff8ed; --ink:#35213b; --coral:#e36a50; --sky:#8bc1d3; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:ui-monospace, SFMono-Regular, Menlo, monospace; }
+    header { padding:1.3rem clamp(1.4rem,6vw,5rem); border-bottom:3px solid var(--ink); display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .brand { color:var(--ink); text-decoration:none; font-family:Georgia, serif; font-size:clamp(1.6rem,3.5vw,2.7rem); font-weight:700; line-height:.8; }
+    .back { color:var(--coral); font-weight:700; }
+    main { min-height:calc(100vh - 6.5rem); display:grid; place-items:center; padding:clamp(2rem,7vw,6rem) 1.5rem; }
+    section { width:min(58rem,100%); background:var(--coral); border:3px solid var(--ink); padding:clamp(2rem,7vw,5.5rem); position:relative; overflow:hidden; }
+    section:after { content:"✦  ✦  ✦"; position:absolute; right:1.5rem; bottom:1rem; font-family:Georgia,serif; font-size:2.5rem; color:var(--sky); }
+    .eyebrow { margin:0 0 1rem; font-size:.8rem; letter-spacing:.12em; }
+    h1 { max-width:16ch; margin:0; color:var(--cream); font-family:Georgia,serif; font-size:clamp(2.8rem,8vw,6rem); line-height:.88; }
+    .intro { max-width:42rem; margin:1.8rem 0 2.3rem; font-size:clamp(1rem,2.2vw,1.25rem); line-height:1.55; }
+    form { display:flex; max-width:33rem; border-bottom:2px solid var(--cream); }
+    input { min-width:0; flex:1; border:0; background:transparent; color:var(--cream); padding:.95rem 0; font:inherit; outline:0; }
+    input::placeholder { color:#fff3df; }
+    button { border:2px solid var(--ink); background:var(--ink); color:var(--cream); padding:.85rem 1rem; font:inherit; cursor:pointer; }
+    .note { margin:1.1rem 0 0; max-width:35rem; font-size:.8rem; line-height:1.55; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="index.html">Miss<br>MoodyTiger</a>
+    <a class="back" href="index.html">← back home</a>
+  </header>
+  <main>
+    <section>
+      <p class="eyebrow">SNAIL MAIL CLUB</p>
+      <h1>Small dispatches for your tender wild heart.</h1>
+      <p class="intro">A slow little post from the studio: notes from the drawing desk, new print news, and occasional things worth keeping close.</p>
+      <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='you’re on the list ✦';">
+        <input type="email" required aria-label="Your email" placeholder="your@email.com">
+        <button type="submit">subscribe →</button>
+      </form>
+      <p class="note">No noise. Just a small note, once in a while.</p>
+    </section>
+  </main>
+</body>
+</html>

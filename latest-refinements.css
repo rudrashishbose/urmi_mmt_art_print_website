@@ -1,0 +1,148 @@
+/* Final storefront presentation refinements */
+#shop .product-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: end;
+  gap: clamp(1.15rem, 3.3vw, 3.75rem) !important;
+}
+
+#shop .product,
+#shop .product-art,
+#shop .product-image-link,
+#shop .product-image-link > div {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#shop .product-image-link,
+#shop .product-art {
+  overflow: visible !important;
+}
+
+#shop .product:nth-child(2) {
+  transform: translateY(1.6rem);
+}
+
+#shop .product:nth-child(3) {
+  transform: translateY(.45rem);
+}
+
+#shop .product img {
+  display: block;
+  width: 100%;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+footer {
+  display: grid !important;
+  grid-template-areas:
+    "mark brand links"
+    "mark brand copyright";
+  grid-template-columns: 2.75rem minmax(9rem, 16rem) minmax(0, 1fr) !important;
+  align-items: center;
+  column-gap: 1rem;
+  row-gap: .75rem;
+  padding: clamp(1.9rem, 4vw, 3.5rem) clamp(1.5rem, 6vw, 5rem) !important;
+}
+
+footer .footer-logo-mark {
+  grid-area: mark;
+  width: 2.4rem !important;
+  height: 2.4rem !important;
+  object-fit: contain;
+}
+
+footer > a.wordmark {
+  grid-area: brand;
+  min-width: 0;
+  max-width: 15rem;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  line-height: .85;
+}
+
+footer .footer-content {
+  grid-area: links;
+  display: grid !important;
+  grid-template-columns: max-content max-content max-content !important;
+  justify-content: center;
+  align-items: start;
+  gap: clamp(1.25rem, 3vw, 3.75rem) !important;
+}
+
+footer .footer-column {
+  text-align: left;
+}
+
+footer .footer-social {
+  display: flex !important;
+  justify-self: end;
+  align-items: center;
+  gap: .8rem !important;
+}
+
+footer .footer-social .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem !important;
+  height: 2rem !important;
+  border: 0 !important;
+}
+
+footer .footer-social .social-icon svg {
+  width: 1.65rem !important;
+  height: 1.65rem !important;
+}
+
+footer > p {
+  grid-area: copyright;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  #shop .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.25rem !important;
+  }
+
+  #shop .product:nth-child(2),
+  #shop .product:nth-child(3) {
+    transform: none;
+  }
+
+  footer {
+    grid-template-areas:
+      "mark brand"
+      "links links"
+      "copyright copyright";
+    grid-template-columns: 2.5rem minmax(0, 1fr) !important;
+  }
+
+  footer .footer-content {
+    grid-template-columns: 1fr 1fr auto !important;
+    justify-content: stretch;
+    gap: 1rem !important;
+  }
+
+  footer .footer-social {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 460px) {
+  #shop .product-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  footer .footer-content {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  footer .footer-social {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}

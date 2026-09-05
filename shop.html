@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - MissMoodyTiger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="announcement">customer shop preview - order requests open as email drafts</div>
+    <header class="site-header"></header>
+    <main class="market-shell">
+      <section class="market-heading">
+        <p class="eyebrow">customer shop</p>
+        <h1>Buy art prints</h1>
+        <p>Browse published listings, sign in with a preview email OTP, save delivery addresses, and email your order details to the studio.</p>
+      </section>
+
+      <section class="shop-layout">
+        <div>
+          <div class="panel-title">
+            <p class="eyebrow">available pieces</p>
+            <a class="text-link" href="studio-admin.html">admin -></a>
+          </div>
+          <div class="shop-listings" id="shopListings"></div>
+        </div>
+
+        <aside class="checkout-rail">
+          <section class="market-panel">
+            <div class="panel-title">
+              <h2>Cart</h2>
+              <span id="cartBadge">0</span>
+            </div>
+            <div id="shopCart"></div>
+          </section>
+
+          <section class="market-panel">
+            <h2>Email login</h2>
+            <div class="customer-state" id="customerState"></div>
+            <form id="otpRequestForm" class="compact-form">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <button type="submit">Send OTP</button>
+            </form>
+            <form id="otpVerifyForm" class="compact-form">
+              <label for="otp">OTP</label>
+              <input id="otp" name="otp" type="text" inputmode="numeric" maxlength="6" placeholder="123456" required />
+              <button type="submit">Verify</button>
+            </form>
+            <p class="detail-note" id="otpMessage" aria-live="polite">A real OTP must be generated and emailed by a server.</p>
+          </section>
+
+          <section class="market-panel">
+            <h2>Addresses</h2>
+            <div id="addressList"></div>
+            <form id="addressForm" class="compact-form">
+              <label for="addressName">Name</label>
+              <input id="addressName" name="name" type="text" placeholder="Home" required />
+              <label for="line1">Address</label>
+              <input id="line1" name="line1" type="text" placeholder="Street, building, apartment" required />
+              <div class="form-pair">
+                <div>
+                  <label for="city">City</label>
+                  <input id="city" name="city" type="text" required />
+                </div>
+                <div>
+                  <label for="region">State</label>
+                  <input id="region" name="region" type="text" required />
+                </div>
+              </div>
+              <label for="postal">Postal code</label>
+              <input id="postal" name="postal" type="text" required />
+              <button type="submit">Save address</button>
+              <p class="form-message" id="addressMessage" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="market-panel">
+            <button class="checkout-button" id="placeOrder" type="button">Email order details</button>
+            <p class="detail-note" id="orderMessage" aria-live="polite">Order requests are sent by opening a pre-filled email draft.</p>
+          </section>
+        </aside>
+      </section>
+    </main>
+    <script src="navigation.js"></script>
+    <script src="marketplace.js"></script>
+  </body>
+</html>
