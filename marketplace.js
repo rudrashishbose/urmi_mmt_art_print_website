@@ -7,6 +7,7 @@
     addresses: 'mmt-market-addresses',
     orders: 'mmt-market-orders'
   };
+  const ADMIN_KEY = 'mmt-admin-auth';
   const STUDIO_ORDER_EMAIL = 'rudrashishbose29@gmail.com';
 
   const read = (key, fallback) => {
@@ -108,10 +109,44 @@
   }
 
   function bindAdminPage() {
+    const loginPanel = byId('adminLoginPanel');
+    const adminTools = byId('adminTools');
+    const loginForm = byId('adminLoginForm');
     const form = byId('listingForm');
     if (!form) return;
 
-    renderAdminListings();
+    const unlockAdmin = () => {
+      localStorage.setItem(ADMIN_KEY, 'true');
+      loginPanel.hidden = true;
+      adminTools.hidden = false;
+      document.querySelector('.admin-shell')?.classList.remove('admin-locked');
+      const nav = document.querySelector('#site-nav');
+      if (nav && !nav.querySelector('a[href="studio-admin.html"]')) {
+        nav.insertAdjacentHTML('beforeend', '<a class="active" aria-current="page" href="studio-admin.html">admin</a>');
+      }
+      renderAdminListings();
+    };
+
+    if (localStorage.getItem(ADMIN_KEY) === 'true') {
+      unlockAdmin();
+    } else {
+      loginPanel.hidden = false;
+      adminTools.hidden = true;
+    }
+
+    loginForm?.addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(loginForm);
+      const username = data.get('username').trim();
+      const password = data.get('password').trim();
+      if (username !== 'admin' || password !== 'admin') {
+        byId('adminLoginMessage').textContent = 'Use username admin and password admin.';
+        return;
+      }
+      byId('adminLoginMessage').textContent = '';
+      unlockAdmin();
+    });
+
     form.addEventListener('submit', async event => {
       event.preventDefault();
       const data = new FormData(form);
@@ -140,6 +175,7 @@
     if (!grid) return;
 
     const items = publishedListings();
+    const catalogOnly = document.body.dataset.catalogOnly === 'true';
     grid.innerHTML = items.length
       ? items.map(item => `
         <article class="shop-listing">
@@ -149,7 +185,7 @@
             <h3>${item.title}</h3>
             <p>${item.description}</p>
             <strong>${rupee(item.price)}</strong>
-            <button type="button" data-add="${item.id}">Add to cart</button>
+            ${catalogOnly ? '<a class="catalog-order-link" href="shop.html">Order in shop</a>' : `<button type="button" data-add="${item.id}">Add to cart</button>`}
           </div>
         </article>`).join('')
       : '<p class="empty-cart">No published pieces yet.</p>';
@@ -211,11 +247,18 @@
 
     node.innerHTML = customer
       ? `<b>${customer.email}</b><button type="button" id="logoutButton">Log out</button>`
-      : '<span>Not signed in</span>';
+      : '<span>Not signed in</span><a class="text-link" href="login.html">log in -></a>';
     byId('logoutButton')?.addEventListener('click', () => {
       localStorage.removeItem(STORAGE_KEYS.customer);
+      const loginLink = document.querySelector('.login-link');
+      if (loginLink) {
+        loginLink.textContent = 'log in';
+        loginLink.href = 'login.html';
+        loginLink.classList.remove('active');
+      }
       renderCustomerState();
       renderAddresses();
+      renderOrderHistory();
     });
   }
 
@@ -246,6 +289,12 @@
       byId('otpMessage').textContent = 'Signed in for this browser preview.';
       renderCustomerState();
       renderAddresses();
+      renderOrderHistory();
+      const loginLink = document.querySelector('.login-link');
+      if (loginLink) {
+        loginLink.textContent = pending.email;
+        loginLink.href = 'account.html';
+      }
     });
   }
 
@@ -267,6 +316,27 @@
           <span><b>${address.name}</b>${address.line1}, ${address.city}, ${address.region} ${address.postal}</span>
         </label>`).join('')
       : '<p class="empty-cart">No saved addresses yet.</p>';
+  }
+
+  function renderOrderHistory() {
+    const node = byId('orderHistory');
+    if (!node) return;
+
+    const customer = currentCustomer();
+    if (!customer) {
+      node.innerHTML = '<p class="empty-cart">Log in to see order drafts from this browser.</p>';
+      return;
+    }
+
+    const orders = read(STORAGE_KEYS.orders, []).filter(order => order.email === customer.email);
+    node.innerHTML = orders.length
+      ? orders.map(order => `
+        <article class="order-card">
+          <b>${rupee(order.total)}</b>
+          <span>${new Date(order.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+          <small>${order.items.map(item => `${item.title} x${item.qty}`).join(', ')}</small>
+        </article>`).join('')
+      : '<p class="empty-cart">No order drafts yet.</p>';
   }
 
   function bindAddressForm() {
@@ -377,6 +447,22 @@
     bindCheckout();
   }
 
+  function bindLoginPage() {
+    if (!byId('otpRequestForm') || byId('shopListings')) return;
+    renderCustomerState();
+    bindOtpLogin();
+  }
+
+  function bindAccountPage() {
+    if (!document.querySelector('.account-shell')) return;
+    renderCustomerState();
+    renderAddresses();
+    renderOrderHistory();
+    bindAddressForm();
+  }
+
   bindAdminPage();
   bindShopPage();
+  bindLoginPage();
+  bindAccountPage();
 })();

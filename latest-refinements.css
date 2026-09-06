@@ -35,16 +35,146 @@
   box-shadow: none !important;
 }
 
+.home-shop-banner {
+  display: grid !important;
+  min-height: clamp(25rem, 44vw, 38rem) !important;
+  height: auto !important;
+  padding: clamp(3rem, 7vw, 5.75rem) clamp(2rem, 9vw, 7rem) !important;
+  color: var(--ink) !important;
+  text-decoration: none;
+  background: var(--paper) !important;
+  border-bottom: var(--line);
+}
+
+.home-shop-banner::after {
+  content: none !important;
+}
+
+.home-shop-banner .home-banner-copy {
+  grid-area: 1 / 1;
+  z-index: 1;
+  align-self: start;
+  justify-self: start;
+  display: flex !important;
+  flex-direction: column;
+  gap: 1.45rem;
+  width: min(46rem, calc(100vw - 14rem)) !important;
+  margin: 0 !important;
+  font-family: "DM Mono", monospace !important;
+}
+
+.home-shop-banner .home-banner-copy > small {
+  font-size: .62rem;
+  line-height: 1.2;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.home-shop-banner .home-banner-copy > b {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(4.25rem, 9vw, 7.9rem);
+  font-weight: 400;
+  line-height: .86;
+  letter-spacing: -.03em;
+}
+
+.home-shop-banner .home-banner-copy em {
+  color: var(--red);
+  font-family: inherit;
+  font-style: normal;
+}
+
+.home-shop-banner .home-banner-copy > span {
+  width: auto !important;
+  max-width: 23rem;
+  margin: 0 !important;
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.home-shop-banner:hover .home-banner-copy > b,
+.home-shop-banner:focus-visible .home-banner-copy > b {
+  color: var(--red);
+}
+
+.home-shop-banner:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: -10px;
+}
+
+.home-catalogue .market-heading {
+  display: block;
+  max-width: 58rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.home-catalogue .market-heading h1 {
+  max-width: 8ch;
+  margin-bottom: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+.home-catalogue .market-heading p {
+  max-width: 39rem;
+  margin: 0 !important;
+  font-size: clamp(.95rem, 1.2vw, 1.05rem);
+  line-height: 1.55;
+}
+
+.account-shell {
+  max-width: 1180px;
+}
+
+.account-grid {
+  grid-template-columns: minmax(18rem, .75fr) minmax(24rem, 1.25fr);
+}
+
+.account-grid .market-panel {
+  align-self: start;
+}
+
+.account-state {
+  margin: 1.2rem 0;
+}
+
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.4rem;
+  margin-top: 1.6rem;
+}
+
+.account-orders {
+  grid-column: 2;
+}
+
+.order-card {
+  display: grid;
+  gap: .3rem;
+  border-top: 1px solid var(--ink);
+  padding: 1rem 0;
+}
+
+.order-card b {
+  font: 1.45rem Fraunces, serif;
+}
+
+.order-card span,
+.order-card small {
+  font-size: .72rem;
+}
+
 footer {
   display: grid !important;
   grid-template-areas:
-    "mark brand links"
-    "mark brand copyright";
-  grid-template-columns: 2.75rem minmax(9rem, 16rem) minmax(0, 1fr) !important;
-  align-items: center;
-  column-gap: 1rem;
-  row-gap: .75rem;
-  padding: clamp(1.9rem, 4vw, 3.5rem) clamp(1.5rem, 6vw, 5rem) !important;
+    "brand links"
+    "copyright links";
+  grid-template-columns: minmax(13rem, .75fr) minmax(0, 1.25fr) !important;
+  align-items: end;
+  column-gap: clamp(2rem, 8vw, 8rem);
+  row-gap: 1.25rem;
+  min-height: 18rem;
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(2rem, 7vw, 5.5rem) !important;
 }
 
 footer .footer-logo-mark {
@@ -66,21 +196,23 @@ footer > a.wordmark {
 footer .footer-content {
   grid-area: links;
   display: grid !important;
-  grid-template-columns: max-content max-content max-content !important;
-  justify-content: center;
+  grid-template-columns: minmax(8rem, max-content) minmax(10rem, max-content) minmax(9rem, max-content) !important;
+  justify-content: end;
   align-items: start;
-  gap: clamp(1.25rem, 3vw, 3.75rem) !important;
+  gap: clamp(1.75rem, 4vw, 4.5rem) !important;
 }
 
 footer .footer-column {
+  display: grid;
+  gap: .85rem;
   text-align: left;
 }
 
 footer .footer-social {
-  display: flex !important;
+  display: grid !important;
   justify-self: end;
-  align-items: center;
-  gap: .8rem !important;
+  gap: .85rem !important;
+  text-align: left;
 }
 
 footer .footer-social .social-icon {
@@ -100,6 +232,7 @@ footer .footer-social .social-icon svg {
 footer > p {
   grid-area: copyright;
   margin: 0;
+  align-self: start;
 }
 
 @media (max-width: 760px) {
@@ -113,16 +246,43 @@ footer > p {
     transform: none;
   }
 
+  .home-shop-banner {
+    min-height: 31rem !important;
+    padding: 3rem 2rem !important;
+  }
+
+  .home-shop-banner .home-banner-copy {
+    width: calc(100vw - 4rem) !important;
+    margin: 0 !important;
+  }
+
+  .home-shop-banner .home-banner-copy > b {
+    max-width: 100%;
+    font-size: clamp(3rem, 14vw, 4.85rem);
+  }
+
+  .home-catalogue .market-heading h1 {
+    max-width: 7ch;
+  }
+
+  .account-grid,
+  .account-orders {
+    grid-template-columns: 1fr;
+    grid-column: auto;
+  }
+
   footer {
     grid-template-areas:
-      "mark brand"
-      "links links"
-      "copyright copyright";
-    grid-template-columns: 2.5rem minmax(0, 1fr) !important;
+      "brand"
+      "links"
+      "copyright";
+    grid-template-columns: 1fr !important;
+    min-height: 0;
+    row-gap: 2rem;
   }
 
   footer .footer-content {
-    grid-template-columns: 1fr 1fr auto !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
     justify-content: stretch;
     gap: 1rem !important;
   }
@@ -138,11 +298,10 @@ footer > p {
   }
 
   footer .footer-content {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
   }
 
   footer .footer-social {
-    grid-column: 1 / -1;
     justify-self: start;
   }
 }

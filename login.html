@@ -11,12 +11,37 @@
   </head>
   <body>
     <header class="site-header"></header>
-    <main class="cart-page">
-      <p class="eyebrow">member area</p>
-      <h1>Log in</h1>
-      <p>Secure sign-in, verification, and saved wishlists will be enabled when the self-hosted authentication service is connected.</p>
-      <p class="detail-note">No password or customer information is collected by this local preview.</p>
+    <main class="market-shell login-shell">
+      <section class="market-heading">
+        <h1>Log in</h1>
+        <p>Use an email OTP to sign in for this browser preview. The code appears on screen until a real email service is connected.</p>
+      </section>
+
+      <section class="market-grid login-grid">
+        <div class="market-panel">
+          <h2>Email OTP</h2>
+          <div class="customer-state" id="customerState"></div>
+          <form id="otpRequestForm" class="compact-form">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            <button type="submit">Send OTP</button>
+          </form>
+          <form id="otpVerifyForm" class="compact-form">
+            <label for="otp">OTP</label>
+            <input id="otp" name="otp" type="text" inputmode="numeric" maxlength="6" placeholder="123456" required />
+            <button type="submit">Verify and log in</button>
+          </form>
+          <p class="detail-note" id="otpMessage" aria-live="polite">A production site would send this code by email from the server.</p>
+        </div>
+
+        <aside class="market-panel login-next">
+          <h2>After login</h2>
+          <p>Once signed in, the email in the header opens your account details page with saved addresses and order drafts.</p>
+          <a class="catalog-order-link" href="account.html">Open account</a>
+        </aside>
+      </section>
     </main>
     <script src="navigation.js"></script>
+    <script src="marketplace.js"></script>
   </body>
 </html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account - MissMoodyTiger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght,SOFT@9..144,600..700,50&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="latest-refinements.css" />
+  </head>
+  <body>
+    <div class="announcement">account preview - details are saved only in this browser</div>
+    <header class="site-header"></header>
+    <main class="market-shell account-shell">
+      <section class="market-heading">
+        <p class="eyebrow">member area</p>
+        <h1>Account details</h1>
+        <p>Keep your email, saved addresses, and order drafts together for the customer shop preview.</p>
+      </section>
+
+      <section class="market-grid account-grid">
+        <div class="market-panel">
+          <h2>Profile</h2>
+          <div class="customer-state account-state" id="customerState"></div>
+          <p class="detail-note">Signed-in customers can save addresses and use them when emailing an order request.</p>
+          <div class="account-actions">
+            <a class="catalog-order-link" href="shop.html">Go to shop</a>
+            <a class="text-link" href="studio-admin.html">Studio admin -></a>
+          </div>
+        </div>
+
+        <section class="market-panel">
+          <h2>Saved addresses</h2>
+          <div id="addressList"></div>
+          <form id="addressForm" class="compact-form">
+            <label for="addressName">Name</label>
+            <input id="addressName" name="name" type="text" placeholder="Home" required />
+            <label for="line1">Address</label>
+            <input id="line1" name="line1" type="text" placeholder="Street, building, apartment" required />
+            <div class="form-pair">
+              <div>
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" required />
+              </div>
+              <div>
+                <label for="region">State</label>
+                <input id="region" name="region" type="text" required />
+              </div>
+            </div>
+            <label for="postal">Postal code</label>
+            <input id="postal" name="postal" type="text" required />
+            <button type="submit">Save address</button>
+            <p class="form-message" id="addressMessage" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="market-panel account-orders">
+          <h2>Order drafts</h2>
+          <div id="orderHistory"></div>
+        </section>
+      </section>
+    </main>
+    <script src="navigation.js"></script>
+    <script src="marketplace.js"></script>
+  </body>
+</html>

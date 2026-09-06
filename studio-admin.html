@@ -12,9 +12,22 @@
   <body>
     <div class="announcement">prototype studio tools - listing data stays in this browser</div>
     <header class="site-header"></header>
-    <main class="market-shell admin-shell">
+    <main class="market-shell admin-shell admin-locked">
+      <section class="market-panel admin-login-panel" id="adminLoginPanel">
+        <h1>Admin sign in</h1>
+        <p>Use the studio credentials to unlock listing tools in this browser.</p>
+        <form class="compact-form" id="adminLoginForm">
+          <label for="adminUsername">Username</label>
+          <input id="adminUsername" name="username" type="text" autocomplete="username" required />
+          <label for="adminPassword">Password</label>
+          <input id="adminPassword" name="password" type="password" autocomplete="current-password" required />
+          <button type="submit">Unlock admin</button>
+          <p class="form-message" id="adminLoginMessage" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <div class="admin-tools" id="adminTools" hidden>
       <section class="market-heading">
-        <p class="eyebrow">studio counter</p>
         <h1>Add pieces</h1>
         <p>Create listings with an image, description, price, and dimensions. This preview stores them locally so you can shape the workflow before a backend is connected.</p>
       </section>
@@ -35,7 +48,19 @@
             </div>
             <div>
               <label for="dimensions">Dimensions</label>
-              <input id="dimensions" name="dimensions" type="text" placeholder="A4 · 210 x 297 mm" required />
+              <select id="dimensions" name="dimensions" required>
+                <option value="A6 · 105 x 148 mm">A6 · 105 x 148 mm</option>
+                <option value="A5 · 148 x 210 mm">A5 · 148 x 210 mm</option>
+                <option value="A4 · 210 x 297 mm" selected>A4 · 210 x 297 mm</option>
+                <option value="A3 · 297 x 420 mm">A3 · 297 x 420 mm</option>
+                <option value="5 x 7 in · 127 x 178 mm">5 x 7 in · 127 x 178 mm</option>
+                <option value="8 x 10 in · 203 x 254 mm">8 x 10 in · 203 x 254 mm</option>
+                <option value="11 x 14 in · 279 x 356 mm">11 x 14 in · 279 x 356 mm</option>
+                <option value="12 x 16 in · 305 x 406 mm">12 x 16 in · 305 x 406 mm</option>
+                <option value="16 x 20 in · 406 x 508 mm">16 x 20 in · 406 x 508 mm</option>
+                <option value="Square 8 x 8 in · 203 x 203 mm">Square 8 x 8 in · 203 x 203 mm</option>
+                <option value="Square 12 x 12 in · 305 x 305 mm">Square 12 x 12 in · 305 x 305 mm</option>
+              </select>
             </div>
           </div>
 
@@ -60,6 +85,7 @@
           <div class="tool-list" id="listingList"></div>
         </section>
       </section>
+      </div>
     </main>
     <script src="navigation.js"></script>
     <script src="marketplace.js"></script>
